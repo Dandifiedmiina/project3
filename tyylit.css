@@ -1,0 +1,59 @@
+h1,
+#moti {
+  text-align: center;
+}
+
+#arska {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,
+table {
+  border: 1px solid black;
+}
+
+th {
+  border: 2px solid grey;
+  background-color: lightslategrey;
+}
+
+#cellHidden {
+  border-color: white;
+  background-color: white;
+}
+
+input {
+  text-align: center;
+  width: 80px;
+}
+
+#added,
+#added2,
+#added3,
+#added4 {
+  background-color: lightgray;
+  border-color: black;
+  visibility: hidden;
+}
+
+#taulukko {
+  text-align: center;
+  margin-left: 5%;
+}
+
+#base {
+  width: 70%;
+}
+
+#first {
+  float: left;
+  margin-left: 15%;
+  margin-top: 10px;
+}
+#second {
+  float: right;
+  margin-right: 15%;
+  margin-top: 10px;
+}
