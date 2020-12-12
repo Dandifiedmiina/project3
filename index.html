@@ -3,13 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="tyylit.css">
-    //css oma tiedosto
 
-
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    //Jquery
-    <script src="javascript.js" type="text/javascript"></script>
-    //javascript oma tiedosto
 </head>
 
 <body>
@@ -22,7 +16,7 @@
     <div id="moti">
         <h3>Motivational quote of the day</h3>
 
-        <button onclick="motivated()">Get motivated</button>
+        <button id="motivation">Get motivated</button>
     </div>
 
     <h5 id="moti"></h5>
@@ -97,9 +91,9 @@
             <p>
                 Count the sum of excercise in a week: <br>
                 <label for="summa"></label>
-                <td><input type="text" name="sum" id='total' disabled></td>
+                <td><input type="number" name="sum" id='total' disabled></td>
                 <br>
-                <input type="button" onclick="calculate()" name="Total" value="Total">
+                <input type="button" id="calculate" name="Total" value="Total">
             </p>
         </div>
 
@@ -118,7 +112,7 @@
                     <option value="climbing">Climbing</option>
                 </select>
             </form>
-            <input type="button" onclick="changeHobby()" name="change" value="change">
+            <input type="button" id="changeHobby" name="change" value="change">
             </p>
         </div>
     </div>
@@ -127,6 +121,10 @@
         <p>
         </p>
     </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <script src="javascript.js" type="text/javascript"></script>
 </body>
 
 </html>

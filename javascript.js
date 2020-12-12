@@ -1,14 +1,15 @@
-ocument.cookie = "expiress=  Sat,  31 Dec  2021 12:00:00 UTC";
+document.cookie = "expiress=  Sat,  31 Dec  2021 12:00:00 UTC";
 
 //tehty alkuun  virheilmoitusten  muuttujat, mikäli tarvetta useampaan funktioon
 
-var h = document.createElement("b");
-var t = document.createTextNode("* Please add a new hobby");
-h.appendChild(t);
+var h = $("<b></b>").text("* Please add a new hobby");
+$("h").append(h);
+
+var sum = 0;
 
 //motivaatio quotet ja randomizer.
 
-function motivated() {
+$("#motivation").click(function () {
   var quotes = [
     "The resistance that you fight physically in the gym and the resistance that you fight in life can only build a strong character",
     "The best activities for your health are pumping and humping",
@@ -20,20 +21,19 @@ function motivated() {
   ];
 
   var luku = Math.round(Math.random() * 5);
-  document.getElementsByTagName("h5")[0].innerHTML = quotes[luku];
-}
+  $("h5").eq(0).html(quotes[luku]);
+});
 
-function calculate() {
-  //lasketaan harrastusten yhteismäärä
-  var sum = 0;
-  for (i = 0; i < document.getElementsByName("time").length; i++) {
-    var t = document.getElementsByName("time")[i].value;
-    var tFloat = parseFloat(t);
-    sum = sum + tFloat;
-  }
+$("#calculate").click(function () {
+  var t1 = $("#added").val();
+  var t2 = $("#added2").val();
+  var t3 = $("#added3").val();
+  var t4 = $("#added4").val();
 
-  document.getElementById("total").value = sum;
-}
+  sum = parseFloat(t1) + parseFloat(t2) + parseFloat(t3) + parseFloat(t4);
+
+  $("#total").val(sum);
+});
 
 //lasketaan harrastusten määrä per harrastus
 function sumHobby() {
@@ -82,33 +82,26 @@ function sumHobby4() {
 }
 
 //Mahdollisuus vaihtaa harrastus
-function changeHobby() {
-  var ch = document.getElementById("type");
-  var change = ch.options[ch.selectedIndex].value;
+$("#changeHobby").click(function () {
+  var ch = $("#type");
+  var change = $("#dropdown option:selected").text();
+  var newHobby = $("#hobby").val();
 
-  if (document.getElementById("hobby").value == "") {
-    document.getElementById("error").appendChild(h);
-    document.getElementById("hobby").style.borderColor = "red";
+  if (newHobby == "") {
+    $("#error").appendChild(h);
+    $("#hobby").css("border", "red solid 2px");
     return false;
   }
-  if (document.dropdown.hobbies.selectedIndex == 0) {
+  if ($("#dropdown option:selected").text() == "") {
     alert("Choose a hobby to change!");
     return false;
-  } else if (change == "biking") {
-    document.getElementById("biking").innerHTML = document.getElementById(
-      "hobby"
-    ).value;
-  } else if (change == "running") {
-    document.getElementById("running").innerHTML = document.getElementById(
-      "hobby"
-    ).value;
-  } else if (change == "swimming") {
-    document.getElementById("swimming").innerHTML = document.getElementById(
-      "hobby"
-    ).value;
-  } else if (change == "climbing") {
-    document.getElementById("climbing").innerHTML = document.getElementById(
-      "hobby"
-    ).value;
+  } else if (change == "Biking") {
+    $("#biking").text(newHobby);
+  } else if (change == "Running") {
+    $("#running").text(newHobby);
+  } else if (change == "Swimming") {
+    $("#swimming").text(newHobby);
+  } else if (change == "Climbing") {
+    $("#climbing").text(newHobby);
   }
-}
+});
