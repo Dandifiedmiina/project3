@@ -6,6 +6,9 @@ var h = $("<b></b>").text("* Please add a new hobby");
 $("h").append(h);
 
 var sum = 0;
+var sum2 = 0;
+var sum3 = 0;
+var sum4 = 0;
 
 //motivaatio quotet ja randomizer.
 
@@ -35,51 +38,44 @@ $("#calculate").click(function () {
   $("#total").val(sum);
 });
 
+$(document).ready(function () {
+  $("img").click(function () {
+    $("img").fadeOut();
+  });
+});
+
 //lasketaan harrastusten määrä per harrastus
-function sumHobby() {
-  var sum = 0;
-  document.getElementById("added").style.visibility = "visible";
-  for (i = 0; i < 7; i++) {
-    //otetaan muuttujassa huomioon päivien määrä (alle 7)
-    var t = document.getElementsByName("time")[i].value;
-    var tFloat = parseFloat(t);
-    sum = sum + tFloat;
-  }
-  document.getElementById("added").value = sum;
-}
+$("input").change(function () {
+  $("#added").css("visibility", "visible");
+  $("#added2").css("visibility", "visible");
+  $("#added3").css("visibility", "visible");
+  $("#added4").css("visibility", "visible");
 
-//toistetaan ylempi alla olevissa. Päivien määrä muuttuu edeltävän loputtua'
-function sumHobby2() {
-  var sum = 0;
-  document.getElementById("added2").style.visibility = "visible";
-  for (i = 7; i < 14; i++) {
-    var t = document.getElementsByName("time")[i].value;
-    var tFloat = parseFloat(t);
-    sum = sum + tFloat;
-  }
-  document.getElementById("added2").value = sum;
-}
+  var sum1 = 0;
+  var sum2 = 0;
+  var sum3 = 0;
+  var sum4 = 0;
 
-function sumHobby3() {
-  var sum = 0;
-  document.getElementById("added3").style.visibility = "visible";
-  for (i = 14; i < 21; i++) {
-    var t = document.getElementsByName("time")[i].value;
-    var tFloat = parseFloat(t);
-    sum = sum + tFloat;
-  }
-  document.getElementById("added3").value = sum;
-}
-function sumHobby4() {
-  var sum = 0;
-  document.getElementById("added4").style.visibility = "visible";
-  for (i = 21; i < 28; i++) {
-    var t = document.getElementsByName("time")[i].value;
-    var tFloat = parseFloat(t);
-    sum = sum + tFloat;
-  }
-  document.getElementById("added4").value = sum;
-}
+  $(".time").each(function () {
+    sum1 = sum1 + parseFloat($(this).val());
+  });
+
+  $(".time2").each(function () {
+    sum2 = sum2 + parseFloat($(this).val());
+  });
+  $(".time3").each(function () {
+    sum3 = sum3 + parseFloat($(this).val());
+  });
+
+  $(".time4").each(function () {
+    sum4 = sum4 + parseFloat($(this).val());
+  });
+
+  $("#added").val(sum1);
+  $("#added2").val(sum2);
+  $("#added3").val(sum3);
+  $("#added4").val(sum4);
+});
 
 //Mahdollisuus vaihtaa harrastus
 $("#changeHobby").click(function () {
